@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #employeeTable{
+        #employeeTable {
             margin: auto;
             border: 1px solid black;
             border-spacing: 0;
@@ -15,27 +16,45 @@
             /* test */
         }
 
-        #formDiv table{
+        #formDiv table {
             margin: auto;
-            border: 1px solid black;        
-        } 
-
-        #employeeTable tr,
-        #employeeTable td,
-        #employeeTable th{
             border: 1px solid black;
         }
 
-        h4{
+        #employeeTable tr,
+        #employeeTable td,
+        #employeeTable th {
+            border: 1px solid black;
+        }
+
+        h4 {
             text-align: center;
         }
     </style>
     <script>
-        window.onload=function(){
-            console.log(123);
+        window.onload = function () {
+            var del = document.querySelectorAll("#employeeTable a");
+            for (var i = 0; i < del.length; i++) {
+                del[i].onclick = function () {
+                    var tr = this.parentNode.parentNode;
+                    var name = tr.getElementsByTagName("td")[0].innerHTML;
+                    
+
+
+                    if(confirm("是否确认删除"+name+"？")){
+                        tr.parentNode.removeChild(tr);
+
+                        
+                        
+                    }
+
+                    return false;
+                };
+            }
         };
     </script>
 </head>
+
 <body>
     <table id="employeeTable">
         <tr>
@@ -90,4 +109,5 @@
         </table>
     </div>
 </body>
+
 </html>
