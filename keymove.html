@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var div = document.querySelector("div");
+
+            /*
+                37左
+                38上
+                39右
+                40下
+            */
+            document.onkeydown = function (e) {
+
+                var key = e.keyCode;
+                // alert(key);
+                switch (key) {
+                    case 37:
+                        div.style.left = div.offsetLeft - 10 + "px";
+
+                        break;
+
+                    case 38:
+                        div.style.top = div.offsetTop - 10 + "px";
+
+                        break;
+
+                    case 39:
+                        div.style.left = div.offsetLeft + 10 + "px";
+
+                        break;
+
+                    case 40:
+                        div.style.top = div.offsetTop + 10 + "px";
+
+                        break;
+
+                    default:
+                        break;
+                }
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
