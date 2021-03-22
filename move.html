@@ -17,12 +17,14 @@
     <script>
         window.onload = function () {
             var box1 = document.querySelector("#box1");
-            box1.onmousedown = function () {
+            box1.onmousedown = function (e) {
+                var ol = e.pageX - box1.offsetLeft;
+                var ot = e.pageY - box1.offsetTop;
                 document.onmousemove = function (e) {
                     var x = e.pageX;
                     var y = e.pageY;
-                    box1.style.left = x + "px";
-                    box1.style.top = y + "px";
+                    box1.style.left = x - ol + "px";
+                    box1.style.top = y - ot + "px";
                 };
 
                 document.onmouseup = function () {
