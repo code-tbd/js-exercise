@@ -25,27 +25,28 @@
                 40下
             */
             document.onkeydown = function (e) {
-
+                var speed = 10;
                 var key = e.keyCode;
                 // alert(key);
+                if(e.ctrlKey)speed*=5;
                 switch (key) {
                     case 37:
-                        div.style.left = div.offsetLeft - 10 + "px";
+                        div.style.left = div.offsetLeft - speed + "px";
 
                         break;
 
                     case 38:
-                        div.style.top = div.offsetTop - 10 + "px";
+                        div.style.top = div.offsetTop - speed + "px";
 
                         break;
 
                     case 39:
-                        div.style.left = div.offsetLeft + 10 + "px";
+                        div.style.left = div.offsetLeft + speed + "px";
 
                         break;
 
                     case 40:
-                        div.style.top = div.offsetTop + 10 + "px";
+                        div.style.top = div.offsetTop + speed + "px";
 
                         break;
 
