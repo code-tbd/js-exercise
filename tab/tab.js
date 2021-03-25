@@ -1,5 +1,6 @@
 var that;
 
+
 class Tab {
     constructor(id) {
         that = this;
@@ -16,15 +17,16 @@ class Tab {
         for (var i = 0; i < this.lis.length; i++) {
             this.lis[i].index = i;
             this.lis[i].onclick = this.toggleTab;
+            this.closes[i].onclick = this.removeTab;
         }
         this.add.onclick = this.addTab;
+
+        
+  
     }
 
     // 1.切换功能
     toggleTab() {
-        for (var i = 0; i < this.length; i++){
-            this.className = "";
-        }
         // console.log(this.index);
         that.clearClass();
         this.className = 'click';
@@ -41,10 +43,13 @@ class Tab {
     updateNode() {
         this.lis = this.main.querySelectorAll('li');
         this.sections = this.main.querySelectorAll('section');
+        this.closes = this.main.querySelectorAll('.nav span');
+        // console.log(this.closes);
     }
 
     // 2. 添加功能
     addTab() {
+        that.init();
         var newTabNum = that.lis.length+1;
         // var newLi = document.createElement('li');
         // var newSection = document.createElement('section');
@@ -53,7 +58,7 @@ class Tab {
         // that.nav.append(newLi);
         // that.content.append(newSection);
         that.clearClass();
-        var li = '<li class="click">'+newTabNum+'<span>x</span></li>';
+        var li = '<li class="click">newtab<span>x</span></li>';
         var section = '<section class="display">测试'+newTabNum+'</section>';
         that.nav.insertAdjacentHTML('beforeend',li);
         that.content.insertAdjacentHTML('beforeend',section);
@@ -61,8 +66,17 @@ class Tab {
     }
 
     // 3.删除功能
-    removeTab() {
-
+    removeTab(e) {
+        that.init();
+        var index = this.parentNode.index;
+        e.stopPropagation();
+        that.lis[index].remove();
+        that.sections[index].remove();
+        // alert(that.lis[index-1].innerHTML); 
+        if(that.lis[index].className != 'click' && index!=0)return;
+        if(index!=0)index--;
+        that.init();
+        that.lis[index].click();
     }
 
     // 4.修改功能

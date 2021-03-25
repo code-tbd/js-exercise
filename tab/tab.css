@@ -23,9 +23,13 @@ h1 {
 .nav li {
     float: left;
     width: 80px;
+    font-size: 8px;
     line-height: 30px;
     border-right: solid orange 1px;
-    text-align: center;
+    text-align: left;
+    padding-left: 10px;;
+    position: relative;
+    box-sizing: border-box;
 }
 
 .nav li span {
@@ -33,9 +37,8 @@ h1 {
     width: 15px;
     height: 15px;
     text-align: center;
-    vertical-align:auto;
-    position: relative;
-    left: 16px;
+    position: absolute;
+    right: 6px;
     background-color: orange;
 }
 
