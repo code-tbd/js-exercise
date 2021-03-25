@@ -19,8 +19,8 @@ class Tab {
             this.lis[i].index = i;
             this.lis[i].onclick = this.toggleTab;
             this.closes[i].onclick = this.removeTab;
-            this.liSpans[i].ondblclick = this.editTabLi;
-            this.seSpans[i].ondblclick = this.editTabSpan;
+            this.liSpans[i].ondblclick = this.editTab;
+            this.seSpans[i].ondblclick = this.editTab;
         }
     }
 
@@ -61,10 +61,11 @@ class Tab {
         // that.nav.append(newLi);
         // that.content.append(newSection);
         that.clearClass();
-        var li = '<li class="click"><span>新标签页</span><a href="#">x</a></li>';
-        var section = '<section class="display"><span>新内容</span></section>';
+        var li = '<li onselectstart="return false;" class="click"><span>新标签页</span><a href="#">x</a></li>';
+        var section = '<section onselectstart="return false;" class="display"><span>新内容</span></section>';
         that.nav.insertAdjacentHTML('beforeend', li);
         that.content.insertAdjacentHTML('beforeend', section);
+        that.init();
     }
 
     // 3.删除功能
@@ -82,18 +83,20 @@ class Tab {
     }
 
     // 4.修改功能
-    editTabLi() {
+    editTab() {
+        that.init();
         var value = this.innerHTML;
-        var input = '<input type="text" value="'+value+'">';
-        this.insertAdjacentHTML('afterend',input);
-        this.remove();
-    }
+        this.innerHTML = '<input type="text">';
+        var input = this.children[0];
+        input.value = value;
+        input.select();
+        input.onblur = function(){
+            this.parentNode.innerHTML = this.value;
+        };
+        input.onkeyup = function(e){
+            if(e.keyCode === 13)this.blur();
+        };
 
-    editTabSpan(){
-        var value = this.innerHTML;
-        var textarea = '<textarea value="'+value+'"></textarea>';
-        this.insertAdjacentHTML('afterend',textarea);
-        this.remove();
     }
 
 }

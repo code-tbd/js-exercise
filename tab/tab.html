@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./tab.css">
 </head>
 
@@ -14,9 +15,9 @@
     <div id="outer">
         <div class="top">
             <ul class="nav">
-                <li class="click"><span>111</span><a href="#">x</a></li>
-                <li><span>222</span><a href="#">x</a></li>
-                <li><span>333</span><a href="#">x</a></li>
+                <li class="click" onselectstart="return false;"><span>111</span><a href="#">x</a></li>
+                <li onselectstart="return false;"><span>222</span><a href="#">x</a></li>
+                <li onselectstart="return false;"><span>333</span><a href="#">x</a></li>
             </ul>
             <a href="#">
                 <div class="addTab">
@@ -26,9 +27,9 @@
 
         </div>
         <div class="content">
-            <section class="display"><span>测试1</span></section>
-            <section><span>测试2</span></section>
-            <section><span>测试3</span></section>
+            <section class="display" onselectstart="return false;"><span>测试1</span></section>
+            <section onselectstart="return false;"><span>测试2</span></section>
+            <section onselectstart="return false;"><span>测试3</span></section>
         </div>
     </div>
 </body>
