@@ -37,10 +37,7 @@ class Inquire {
             //     <td></td>
             //     <td></td>
             // </tr>
-            var id = obj.id;
-            var pname = obj.pname;
-            var price = obj.price;
-            var str = '<tr><td>' + id + '</td><td>' + pname + '</td><td>' + price + '</td></tr>';
+            var str = '<tr><td>' + obj.id + '</td><td>' + obj.pname + '</td><td>' + obj.price + '</td></tr>';
             that.tbody.insertAdjacentHTML('beforeend', str);
         });
     }
