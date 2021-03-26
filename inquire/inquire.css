@@ -1,0 +1,23 @@
+.search {
+    margin: 50px auto;
+    width: 527px;
+}
+
+.search input {
+    width: 40px;
+}
+
+.search button {
+    margin-left: 10px;
+}
+
+table {
+    width: 300px;
+    margin:0 auto; 
+    border: 1px solid black;
+    text-align: center;
+}
+
+tr,th,td {
+    border: 1px solid black;
+}
