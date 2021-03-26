@@ -49,8 +49,13 @@ class Inquire {
         var newData = that.data.filter(function (obj) {
             return obj.price >= start && obj.price <= end;
         });
-        that.tbody.innerHTML = '';
-        that.load(newData);
+        if (start != '' && end != '') {
+            that.tbody.innerHTML = '';
+            that.load(newData);
+        } else {
+            that.tbody.innerHTML = '';
+            that.load(that.data);
+        }
     }
 
     //  按照商品名称查询
@@ -59,8 +64,13 @@ class Inquire {
         var newData = that.data.filter(function (obj) {
             return obj.pname == pname;
         });
-        that.tbody.innerHTML = '';
-        that.load(newData);
+        if (pname != '') {
+            that.tbody.innerHTML = '';
+            that.load(newData);
+        } else {
+            that.tbody.innerHTML = '';
+            that.load(that.data);
+        }
     }
 }
 
